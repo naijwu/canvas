@@ -57,7 +57,7 @@ const Home: NextPage = () => {
             marginTop: `${ selectedLink ? selectedLink == "aspirational" ? "-300vh" : selectedLink == "human" ? "-100vh" :  "-200vh" : "0" }`
           }}>
           <div className={styles.plane}>
-              <div style={{width: "100%", height: "100%", background: "grey"}}></div>
+              <div style={{width: "100%", height: "100%", background: "white"}}></div>
           </div>
           <div className={styles.plane}>
             <Card 
