@@ -62,7 +62,7 @@ const Home: NextPage = () => {
           <div className={styles.plane}>
             <Card 
              top="10vh"
-             left="10%"
+             left="10vw"
              category="writing"
              title="Ideas that have me"
              content="you&apos;ve heard about whether an idea
@@ -86,7 +86,7 @@ const Home: NextPage = () => {
             />
 
             <Card 
-             bottom="20vh"
+             top="65vh"
              left="20vw"
              category="writing"
              title="values I value"
@@ -104,7 +104,7 @@ const Home: NextPage = () => {
 
             <SpecialCard
              top="35vh"
-             right="20vw"
+             left="75vw"
              title="learn about the thinking jaewu"
              content="This section is my digital garden, WIP" />
             
@@ -137,7 +137,7 @@ const Home: NextPage = () => {
 
             <Card 
               top="19vh"
-              right="40vw"
+              left="55vw"
               category="project"
               title="jaewuchun.com"
               content="all data pulls from a central database. 
@@ -149,7 +149,7 @@ const Home: NextPage = () => {
             />
 
             <Card 
-              bottom="15vh"
+              top="70vh"
               left="15vw"
               category="project"
               title="wordseveryday.net"
@@ -162,7 +162,7 @@ const Home: NextPage = () => {
             />
 
             <Card 
-              bottom="23vh"
+              top="70vh"
               left="40vw"
               category="project"
               title="internetspace.co"
@@ -175,8 +175,8 @@ const Home: NextPage = () => {
             />
 
             <Card 
-              bottom="19vh"
-              right="20vw"
+              top="75vh"
+              left="75vw"
               category="project"
               title="opengavel.app"
               content="you’ve heard about whether an idea
@@ -189,7 +189,7 @@ const Home: NextPage = () => {
 
             <Card 
               top="12vh"
-              right="14vw"
+              left="80vw"
               category="cv"
               title="resume/cv"
               link="https://jaewuchun.com/cv.pdf"
@@ -198,7 +198,7 @@ const Home: NextPage = () => {
 
             <SpecialCard
               top="35vh"
-              right="10vw"
+              left="70vw"
               title="learn about the working jaewu"
               content="Professional experience &amp; projects;
               Anything I spend energy on" />
