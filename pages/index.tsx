@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -7,7 +7,7 @@ import Link from 'next/link'
 import Card from '../components/Card'
 import { CARDS } from '../brain'
 
-const Home: NextPage = () => {
+const Home: NextPage = (props) => {
 
   const [selectedLink, setSelectedLink] = useState("")
 

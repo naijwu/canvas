@@ -53,7 +53,11 @@ const Card = (props: any) => {
 
   return (
     <>
-      <div className={styles.popupBackground} style={{display: popup ? "flex" : "none"}}>
+      <div 
+        className={styles.popupBackground} 
+        style={{
+          visibility: popup ? "visible" : "hidden"
+        }}>
         <div className={styles.popupBox}>
           <h3>
             {category}
@@ -61,14 +65,12 @@ const Card = (props: any) => {
           <h2>
             {title}
           </h2>
-          <p dangerouslySetInnerHTML={{__html: content}}>
-          </p>
-        </div>
-        <div className={styles.popupClose} onClick={()=>setPopup(false)}>
-          close
-          <span style={{display: "flex", alignItems: "center", userSelect: "none", paddingLeft: "0.2em"}}>
-            <Image src="/assets/x.svg" alt="link" width={14} height={14} />
-          </span>
+          <p dangerouslySetInnerHTML={{__html: content}}></p>
+          <div className={styles.popupClose} onClick={()=>setPopup(false)}>
+            <span style={{display: "flex", alignItems: "center", userSelect: "none", paddingLeft: "0.2em"}}>
+              <Image src="/assets/x.svg" alt="link" width={14} height={14} />
+            </span>
+          </div>
         </div>
       </div>
       <div 
@@ -98,9 +100,7 @@ const Card = (props: any) => {
               {date}
             </h3>
           )}
-          <p>
-            {content}
-          </p>
+          <p dangerouslySetInnerHTML={{__html: content}}></p>
           { linkText && !link && (
             <div className={styles.link} onClick={()=>setPopup(true)}>
               {linkText}

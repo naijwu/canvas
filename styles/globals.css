@@ -8,6 +8,17 @@
   background: rgba(0,0,0,0.1);
 }
 
+::-webkit-scrollbar {
+  width: 3px;
+  height:3px;
+}
+::-webkit-scrollbar-track {
+  background: white;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.1);
+}
+
 html,
 body {
   padding: 0;
