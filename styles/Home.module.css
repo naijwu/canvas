@@ -35,30 +35,17 @@
 .card {
   position:absolute;
   background:white;
-  border:1px solid #EEEEEE;
   height:auto;
   margin:0;
   box-sizing: border-box;
   padding: 2.5em 1.5em;
   width:350px;
+  user-select: none;
 }
 
-.specialCard {
-  position:absolute;
-  background:linear-gradient(to top right, #FF64EF, #3AC4FF);
-  padding:1px;
-  position:absolute;
-  box-sizing: border-box;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.specialCardInner {
-  background:white;
-  box-sizing: border-box;
-  padding: 2.5em 1.5em;
-  width:350px;
+.card p {
+  max-height: 150px;
+  overflow:hidden;
 }
 
 .link {
@@ -67,6 +54,7 @@
   gap:0.2em;
   align-items: center;
   transition: 0.2s all cubic-bezier(0.215, 0.610, 0.355, 1);
+  cursor:pointer;
 }
 
 .link:hover {
@@ -83,4 +71,40 @@
   height:25%;
   width:100%;
   position: relative;
+}
+
+.popupBackground {
+  width:100vw;
+  height:100vh;
+  left:0;
+  top:0;
+  position:fixed;
+  background:rgba(0,0,0,0.4);
+  z-index:11;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+
+.popupBox {
+  background:white;
+  border:1px solid #EEEEEE;
+  box-sizing: border-box;
+  padding: 2.5em 1.5em;
+  min-width:350px;
+  max-width:450px;
+}
+
+.popupClose {
+  display:flex;
+  align-items:center;
+  padding-top:1em;
+  cursor: pointer;
+  line-height:150%;
+  opacity:0.8;
+  transition: 0.7s all cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.popupClose:hover {
+  opacity:0.6;
 }

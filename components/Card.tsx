@@ -5,6 +5,8 @@ import styles from '../styles/Home.module.css'
 
 const Card = (props: any) => {
 
+  // Chase function
+
   // For info about card
   const ref = useRef<HTMLHeadingElement>(null);
   const [elWidth, setElWidth] = useState(0);
@@ -15,74 +17,108 @@ const Card = (props: any) => {
     setElHeight(ref.current ? ref.current.offsetHeight : 0);
   }, [])
 
-  // For mouse position
-  const [X, setX] = useState(0);
-  const [Y, setY] = useState(0);
+  // hover state (to determine which state gets used as top/left value)
+  const [hovered, setHovered] = useState(false);
+  const [dTop, setDTop] = useState(0);
+  const [dLeft, setDLeft] = useState(0);
 
   // For positioning card
-  const [top, setTop] = useState(props.top ? props.top : 0)
-  const [left, setLeft] = useState(props.left ? props.left : 0)
-
-  // Card data
-  const { category, title, date, content, link, linkText } = props;
+  const [top, setTop] = useState(props.top)
+  const [left, setLeft] = useState(props.left)
 
   const updateMousePos = (e: any) => {
-    setX(e.screenX);
-    setY(e.screenY);
-
-    // convert top/left string (vw) to integer (pixels)
-    let leftPx = (left.split('').slice(0, -2).join('') * window.innerWidth) / 100;
-    let topPx = (top.split('').slice(0, -2).join('') * window.innerHeight) / 100;
-
     // Positioning of centre of card
-    let ctrX = (elWidth / 2) + leftPx; 
-    let ctrY = (elHeight / 2) + topPx;
+    let ctrX = (elWidth / 2) + left; 
+    let ctrY = (elHeight / 2) + top;
 
     // get difference between centre and mouse pos
-    let dx = ctrX - X; // pos value = cursor above
-    let dy = ctrY - Y + 50; // pos value = cursor left
+    let dx = ctrX - e.screenX; // pos value = cursor above
+    let dy = ctrY - e.screenY + 50; // pos value = cursor left
     // TODO: problem - for some reason the Y value is off (adding 50 approximates closely enough to centre)
 
-    const intensity = 0.3;
+    const intensity = 0.1;
 
-    // TODO: These values will be applied to transform: translateX and translateY to the card--
-    console.log(dx * intensity, dy * intensity)
+    let newTop = top - (dy * intensity);
+    let newLeft = left - (dx * intensity);
+
+    setDTop(newTop)
+    setDLeft(newLeft)
   }
+
+
+
+  // Card data
+  const { category, title, date, content, link, linkText, special } = props;
+  const [popup, setPopup] = useState(false);
 
   return (
     <>
-      <div 
-        ref={ref}
-        onMouseMove={e=>updateMousePos(e)}
-        className={styles.card}
-        style={{
-          top: top ? top : "auto",
-          left: left ? left : "auto",
-        }}>
+      <div className={styles.popupBackground} style={{display: popup ? "flex" : "none"}}>
+        <div className={styles.popupBox}>
           <h3>
-          {category}
+            {category}
           </h3>
           <h2>
-          {title}
+            {title}
+          </h2>
+          <p dangerouslySetInnerHTML={{__html: content}}>
+          </p>
+        </div>
+        <div className={styles.popupClose} onClick={()=>setPopup(false)}>
+          close
+          <span style={{display: "flex", alignItems: "center", userSelect: "none", paddingLeft: "0.2em"}}>
+            <Image src="/assets/x.svg" alt="link" width={14} height={14} />
+          </span>
+        </div>
+      </div>
+      <div 
+        ref={ref}
+        onMouseEnter={()=>setHovered(true)}
+        onMouseMove={e=>updateMousePos(e)}
+        onMouseLeave={()=>{setTop(props.top); setLeft(props.left);setHovered(false)}}
+        className={styles.card}
+        id={special ? "rainbow" : ""}
+        style={{
+          // Chase styles
+          transition: hovered ? "none" : "0.2s all cubic-bezier(0.165, 0.84, 0.44, 1)",
+          top: hovered ? dTop : top,
+          left: hovered ? dLeft : left,
+
+          // Special styles
+          border: special ? "none" : "1px solid #EEEEEE",
+        }}>
+          <h3>
+            {category}
+          </h3>
+          <h2>
+            {title}
           </h2>
           {date && (
-          <h3 style={{color:"#1F78FF"}}>
-          {date}
-          </h3>
+            <h3 style={{color:"#1F78FF"}}>
+              {date}
+            </h3>
           )}
           <p>
-          {content}
+            {content}
           </p>
-          { (link || linkText) && (
-          <Link href={link} passHref>
-            <a className={styles.link}>
+          { linkText && !link && (
+            <div className={styles.link} onClick={()=>setPopup(true)}>
               {linkText}
               <span style={{display: "flex", alignItems: "center", userSelect: "none"}}>
                 <Image src="/assets/arrow-right.svg" alt="link" width={16} height={16} />
               </span>
-            </a>
-          </Link>
+            </div>
           ) }
+          { linkText && link && (
+            <Link href={link} passHref>
+              <a className={styles.link}>
+                {linkText}
+                <span style={{display: "flex", alignItems: "center", userSelect: "none"}}>
+                  <Image src="/assets/arrow-right.svg" alt="link" width={16} height={16} />
+                </span>
+              </a>
+            </Link>
+          )}
       </div>
     </>
   )
