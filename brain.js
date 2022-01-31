@@ -7,9 +7,9 @@ const CARDS = [
         content: `
         January 30, 2022
         <br/><br/>
-        as i continue my struggle in turning thought into action and wrestle with the seeming independence of those two, i continue to return to the idea of the necessity of hardships
+        as i continue my struggle in turning thought into action and wrestle with the seeming independence of those two, i continue to return to the idea on the necessity of hardships
         <br/><br/>
-        hardship necessitates action. although whether one decides to take action is another topic; one can either choose to take action or regress their Being in complacency—perhaps by dictated by a function of their personality or the childhood makeup of one’s values and character
+        hardship necessitates action. although whether one decides to take action is another topic; one can either choose to take action or regress their Being in complacency—perhaps dictated by a function of their personality or the childhood makeup of one’s values and character
         <br/><br/>
         i digress. life requires hardships not for the sake of hardship but because life is meant to be lived, to contain both thinking and acting, and hardship compels one to act while thinking can be done by anyone reasonably mindful. thus the importance of hardship
         <br/><br/>
