@@ -62,6 +62,33 @@ const CARDS = [
         link: "",
         date: "",
     },
+    {
+        category: "note",
+        title: "checklist to start studying",
+        linkText: "read more",
+        isSpecial: true,
+        content: `
+            For my past two midterms, I only studied the night before, but the studying done was 
+            insanely effective.. probably worth as much as a week of subpar studying... 
+            <br/><br/>
+            but anyways, I noted a few things yesterday about conditions for productivity; 
+            conditions to get me to study this effectively:
+            <br/><br/>
+            <ul>
+                <li>feel the need to study (time pressure, day before exam; push/desire to direct energy towards studying)</li>
+                <li>know what to study (where to specifically direct energy from the point above)</li>
+                <li>access to <strong>effective</strong> and <strong>helpful</strong> resources to study 
+                    (e.g. not lecture recordings, concise & well-written textbooks, yt videos)</li>
+                <li>"wins" in studying; studying breakthroughs (to overcome fatigue of studying; signal to yourself
+                    that you're making actual progress towards your goal of studying)</li>
+                <li>fuel for studying (corollary to "wins"), e.g. water, food</li>
+                <li>peace</li>
+                <li>know when to rest (micro breaks throughout, longer breaks after sessions)</li>
+            </ul>
+        `,
+        link: "",
+        date: "",
+    },
 ],
 [
     // Thinking (index 1)
