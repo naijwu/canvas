@@ -68,11 +68,10 @@ const CARDS = [
         linkText: "read more",
         isSpecial: true,
         content: `
-            For my past two midterms, I only studied the night before, but the studying done was 
-            insanely effective.. probably worth as much as a week of subpar studying... 
+            February 10, 2022
             <br/><br/>
-            but anyways, I noted a few things yesterday about conditions for productivity; 
-            conditions to get me to study this effectively:
+            Got some good studying in for midterms. Notes made yesterday about "conditions for productivity"; 
+            conditions to get me to study mad effectively:
             <br/><br/>
             <ul>
                 <li>feel the need to study (time pressure, day before exam; push/desire to direct energy towards studying)</li>
