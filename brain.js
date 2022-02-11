@@ -66,7 +66,7 @@ const CARDS = [
         category: "note",
         title: "checklist to start studying",
         linkText: "read more",
-        isSpecial: true,
+        isSpecial: false,
         content: `
             February 10, 2022
             <br/><br/>
